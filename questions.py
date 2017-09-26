@@ -28,7 +28,7 @@ for quiz_num in range(35):
 
     for key, state in enumerate(states):
         quiz_file.write('\n')
-        quiz_file.write('{} . What is the capital city of {}?\n'.format(key+1, state))
+        quiz_file.write('{} . What is the capital city of {}?\n\n'.format(key+1, state))
         letters = ['A', 'B', 'C', 'D']
         right_answer = capitals[state]
         wrong_answers = list(capitals.values())
@@ -36,8 +36,13 @@ for quiz_num in range(35):
         wrong_answers = random.sample(wrong_answers, 3)
         answer_options = [right_answer] + wrong_answers
         random.shuffle(answer_options)
-        
+
         for i in range(4):
             if right_answer == answer_options[i]:
                 answer_file.write('{} . {}\n'.format(key + 1, letters[i]))
             quiz_file.write('{}. {}\n'.format(letters[i], answer_options[i]))
+    quiz_file.close()
+    answer_file.close()
+    
+
+
