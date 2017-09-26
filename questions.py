@@ -17,6 +17,7 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
                 'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont':
                 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'West Virginia': 'Charleston',
             'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
+
 states = list(capitals.keys())
 for quiz_num in range(35):
     random.shuffle(states)
@@ -24,6 +25,7 @@ for quiz_num in range(35):
     answer_file = open('answer{}'.format(quiz_num+1), 'w')
     quiz_file.write('Name\n\nDate:\n\nPeriod:\n\n')
     quiz_file.write(("  " * 20) + ' Quiz number ({})\n'.format(quiz_num + 1))
+
     for key, state in enumerate(states):
         quiz_file.write('\n')
         quiz_file.write('{} . What is the capital city of {}?\n'.format(key+1, state))
@@ -34,6 +36,7 @@ for quiz_num in range(35):
         wrong_answers = random.sample(wrong_answers, 3)
         answer_options = [right_answer] + wrong_answers
         random.shuffle(answer_options)
+        
         for i in range(4):
             if right_answer == answer_options[i]:
                 answer_file.write('{} . {}\n'.format(key + 1, letters[i]))
